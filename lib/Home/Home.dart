@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import '../Backend/user_info.dart';
+import '../Models/user_info.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

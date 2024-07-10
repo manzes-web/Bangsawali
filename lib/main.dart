@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:khatiwada_bangsawali_updated/Home/nav_bar.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:khatiwada_bangsawali_updated/Routes/bangsawali_route.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    title: 'Home',
-    initialRoute: 'Home',
-    routes: {
-      'Home': (context) => const MyApp(),
-    },
-  ));
+  runApp(const ProviderScope(child: MyApp()));
+}
+
+class MyApp extends ConsumerWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final goRouter = ref.read(routerProvider);
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: goRouter,
+    );
+  }
 }

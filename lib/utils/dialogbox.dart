@@ -27,9 +27,18 @@ class DialogBox extends StatelessWidget {
       ),
       title: const Text('ADD PEOPLE'),
       actions: [
-        MaterialButton(
-          onPressed: () => Navigator.pop(context),
-          child: const Text('ADD'),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('CANCEL'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('ADD'),
+            ),
+          ],
         )
       ],
     );

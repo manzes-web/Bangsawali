@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:khatiwada_bangsawali_updated/Routes/routes.dart';
 
 import '../Dashboard/dashboard_page.dart';
 import '../Profile/Profile.dart';
 import 'Home.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class HomeState extends StatefulWidget {
+  const HomeState({super.key});
 
   @override
-  _MyAppState createState() => _MyAppState();
+  _HomeStateState createState() => _HomeStateState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _HomeStateState extends State<HomeState> {
   int _selectedIndex = 0;
-  final PageController _pageController = PageController();
-  static const List<Widget> _widgetOptions = <Widget>[
-    Home(),
-    Dashboard(),
-    Profile()
+  static final List<String> _routes = [
+    Routes.home.path,
+    Routes.dashboard.path,
+    Routes.profile.path,
   ];
 
   @override
@@ -34,14 +35,13 @@ class _MyAppState extends State<MyApp> {
         ),
         centerTitle: true,
       ),
-      body: PageView(
-        controller: _pageController,
-        children: _widgetOptions,
-        onPageChanged: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: const [
+          Home(),
+          Dashboard(),
+          Profile(),
+        ],
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -66,25 +66,25 @@ class _MyAppState extends State<MyApp> {
               duration: const Duration(milliseconds: 400),
               tabBackgroundColor: Colors.grey[100]!,
               color: Colors.black,
-              tabs: const [
+              tabs: [
                 GButton(
                   icon: Icons.home,
-                  text: 'Home',
+                  text: Routes.home.name,
                 ),
                 GButton(
                   icon: Icons.menu,
-                  text: 'Dashboard',
+                  text: Routes.dashboard.name,
                 ),
                 GButton(
                   icon: Icons.person,
-                  text: 'Profile',
+                  text: Routes.profile.name,
                 ),
               ],
               selectedIndex: _selectedIndex,
               onTabChange: (index) {
                 setState(() {
                   _selectedIndex = index;
-                  _pageController.jumpToPage(index);
+                  context.go(_routes[index]);
                 });
               },
             ),

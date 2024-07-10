@@ -12,7 +12,7 @@ class _ViewDetailsState extends State<ViewDetails> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('this is details page'),
+        child: Text('this is details page of '),
       ),
     );
   }
