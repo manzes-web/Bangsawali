@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khatiwada_bangsawali_updated/utils/appbar.dart';
 
 class UserInfoPage extends StatelessWidget {
   const UserInfoPage({super.key});
@@ -6,14 +7,8 @@ class UserInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 20,
-        title: const Text(
-          'खतिवडा बंशवाली',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 30),
-        ),
-        centerTitle: true,
+      appBar: BangsawaliAppbar(
+        appbarName: 'खतिवडा बंशवाली',
       ),
       body: const Center(
         child: Text('hello here is user info'),

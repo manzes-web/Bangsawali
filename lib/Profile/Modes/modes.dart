@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khatiwada_bangsawali_updated/utils/appbar.dart';
 
 class Modes extends StatefulWidget {
   const Modes({super.key});
@@ -12,14 +13,8 @@ class _ModesState extends State<Modes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 20,
-        title: const Text(
-          'खतिवडा बंशवाली',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 30),
-        ),
-        centerTitle: true,
+      appBar: BangsawaliAppbar(
+        appbarName: 'खतिवडा बंशवाली',
       ),
       body: Column(
         children: [

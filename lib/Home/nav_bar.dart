@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:khatiwada_bangsawali_updated/Localization/localization.dart';
+import 'package:khatiwada_bangsawali_updated/Localization/strings.dart';
 import 'package:khatiwada_bangsawali_updated/Routes/routes.dart';
+import 'package:khatiwada_bangsawali_updated/utils/appbar.dart';
 
 import '../Dashboard/dashboard_page.dart';
-import '../Profile/Profile.dart';
+import '../Profile/profile.dart';
 import 'Home.dart';
 
 class HomeState extends StatefulWidget {
@@ -26,14 +29,8 @@ class _HomeStateState extends State<HomeState> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 20,
-        title: const Text(
-          'खतिवडा बंशवाली',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 30),
-        ),
-        centerTitle: true,
+      appBar: BangsawaliAppbar(
+        appbarName: appName.loc,
       ),
       body: IndexedStack(
         index: _selectedIndex,

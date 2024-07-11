@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:khatiwada_bangsawali_updated/Models/user_info.dart';
 
 class DialogBox extends StatelessWidget {
-  const DialogBox({super.key});
+  final Function(String) onAdd;
+
+  const DialogBox({super.key, required this.onAdd});
 
   @override
   Widget build(BuildContext context) {
+    List user = User.personName;
     final textController = TextEditingController();
     return AlertDialog(
       content: TextField(
@@ -35,7 +39,12 @@ class DialogBox extends StatelessWidget {
               child: const Text('CANCEL'),
             ),
             TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                if (textController.text.isNotEmpty) {
+                  onAdd(textController.text);
+                  Navigator.pop(context);
+                }
+              },
               child: const Text('ADD'),
             ),
           ],
