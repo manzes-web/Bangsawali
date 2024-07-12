@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "667930059289",
+    "project_id": "khatiwada-bangsawali",
+    "storage_bucket": "khatiwada-bangsawali.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667930059289:android:b85bcfeca6d386b46e8088",
+        "android_client_info": {
+          "package_name": "com.example.khatiwada_bangsawali_updated"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwQvIHc3k-tOiOtvA1xuOofd0mtbbQWBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

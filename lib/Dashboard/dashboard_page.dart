@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:khatiwada_bangsawali_updated/Dashboard/viewdetails.dart';
 import 'package:khatiwada_bangsawali_updated/Models/user_info.dart';
+import 'package:khatiwada_bangsawali_updated/utils/add_people.dart';
 import 'package:khatiwada_bangsawali_updated/utils/dialogbox.dart';
 
 class Dashboard extends StatefulWidget {
@@ -62,7 +63,8 @@ class _DashboardState extends State<Dashboard> {
                   border: Border(),
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               child: MaterialButton(
-                onPressed: showDialogBox,
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const AddPeople())),
                 child: const Text(
                   'ADD PEOPLE',
                   style: TextStyle(color: Colors.black),
